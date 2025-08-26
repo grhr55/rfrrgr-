@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const tovar = require('./componets/tovar');
 const comanda  = require('./componets/comanda');
 const  zauv  = require('./componets/applications');
-const utybe = require('./componets/utybe')
+
 
 
 const dotenv = require ('dotenv');
@@ -28,15 +28,15 @@ mongoose.connect(process.env.MONGODB_URI)
     });
 
 // Настройка парсинга JSON и данных формы
-app.use(express.json({ limit: 'Infinity' }));
-app.use(express.urlencoded({ extended: true, limit: 'Infinity' }));
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 
 
 // Монтирование маршрутов
 app.use('/avto', tovar);
 app.use('/team', comanda);
 app.use('/applications', zauv );
-app.use('/utub', utybe );
+
 
 
 
